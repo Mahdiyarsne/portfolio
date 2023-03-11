@@ -1,0 +1,11 @@
+     label={
+              <div>
+                <Typography variant="subtitle2" color="whitesmoke'">
+                  <HomeRounded sx={{ verticalAlign: "middle", mx: 1.5 }} />
+                  خانه
+                </Typography>
+              </div>
+            }
+          />
+
+         روش دیگه برای استایل دادن به ایکون ها با کنترل بیشتر و شخصی ساری کردن .
