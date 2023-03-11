@@ -44,7 +44,7 @@ const ShowWork = ({loading}) => {
                     gutterBottom
                     sx={{ direction: "ltr" }}
                   >
-                    <EllipsisText text={workSamples.info} length={"30"} />
+                    <EllipsisText text={workSamples.info} length={30} />
                   </Typography>
                 </CardContent>
               </CardActionArea>

@@ -3,13 +3,13 @@ import SwipeableViews from "react-swipeable-views";
 import MainLayout from "../layouts/MainLayout";
 import { Sidebar } from "../components/sidebar";
 import PagesContainer from "./PagesContainer";
-import {Page} from "../components/pages";
+import { Page } from "../components/pages";
 import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import SidebarContainer from "./SidebarContainer";
 import MainContext from "../context";
 import { DrawerActionButton } from "../components/drawer";
-import { Home, About, Resume, WorkSamples, Comments,Contact } from "../pages";
+import { Home, About, Resume, WorkSamples, Comments, Contact } from "../pages";
 const AppContainer = () => {
   const [pageNumber, setPageNumber] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -18,9 +18,9 @@ const AppContainer = () => {
   const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
-  useEffect(() =>{
+  useEffect(() => {
     setMode(prefersDarkMode ? "dark" : "light");
-  },[])
+  }, []);
   useEffect(() => {
     if (isMdUp) {
       setDrawerOpen(false);
@@ -29,6 +29,9 @@ const AppContainer = () => {
   const handlePageNumber = (event, newPage) => {
     console.log(newPage);
     setPageNumber(newPage);
+  };
+  const handlePageChange = (index) => {
+    setPageNumber(index);
   };
 
   const handleThemeChange = () => {
@@ -52,7 +55,7 @@ const AppContainer = () => {
         <DrawerActionButton />
 
         <PagesContainer>
-          <SwipeableViews index={pageNumber} onChangeIndex={handlePageNumber}>
+          <SwipeableViews index={pageNumber} onChangeIndex={handlePageChange}>
             <Page pageNumber={pageNumber} index={0}>
               <Home helmetTitle=" سایت شخصی من |خانه اصلی" />
             </Page>
@@ -69,7 +72,7 @@ const AppContainer = () => {
               <Comments helmetTitle=" سایت شخصی من |نظرات شما" />
             </Page>
             <Page pageNumber={pageNumber} index={5}>
-             <Contact helmetTitle="سایت شخصی من|ارتباط با من "/>
+              <Contact helmetTitle="سایت شخصی من|ارتباط با من " />
             </Page>
           </SwipeableViews>
         </PagesContainer>
